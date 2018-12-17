@@ -11,12 +11,12 @@ public GameObject bulletPrefab;
 	// Use this for initialization
 	void Start () {
 		bulletSpawn = GameObject.Find("KingSpawn");
-		print("hey");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if((this.gameObject.transform.position.y==3.5)&&(Input.GetButtonDown("Fire1")))
+		if((this.gameObject.transform.position.y<1)&&(Input.GetButtonDown("Fire1")))
 		{
 			GameObject tempBullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
 			tempBullet.GetComponent<Rigidbody>().velocity = -bulletSpawn.transform.up*bulletSpeed;

@@ -14,7 +14,16 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+
+	public void Jump(){
+         Vector3 up = transform.TransformDirection(Vector3.up);
+         this.GetComponent<Rigidbody>().AddForce (up * 5, ForceMode.Impulse);
+     }
+
 	void Update () {
+		if(Input.GetKeyDown(KeyCode.Space)){
+                 Jump();
+         }
 		if(Input.GetButtonDown("Fire1"))
 		{
 			GameObject tempBullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
