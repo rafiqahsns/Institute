@@ -9,6 +9,7 @@ TagManager:
   - bullet
   - obstacle
   - player
+  - kingbullet
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bulletScript : MonoBehaviour {
-	
+//	public GameObject player;
 	private void OnCollisionEnter(Collision collision)
 	{
 		Destroy(this.gameObject);
@@ -18,10 +18,9 @@ public class bulletScript : MonoBehaviour {
 	}
 	void Update()
 	{
-		if(this.gameObject.transform.position.z>=30){
-	
-			Destroy(this.gameObject);
-		}
+	if(this.transform.position.z >= 30){
+		Destroy(this.gameObject);
+	}
 	}
 
 }

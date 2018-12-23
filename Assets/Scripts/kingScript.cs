@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class kingScript : MonoBehaviour {
 	
-	 int blood=10;
+	public Rigidbody obstacle1, obstacle2,player;
+
+	int blood=10;
 	void OnCollisionEnter(Collision collision)
 	{
 
@@ -18,9 +20,12 @@ public class kingScript : MonoBehaviour {
 		if(blood==0)
 		{
 			Destroy(this.gameObject);
-			 GameObject[] obstacles = GameObject.FindGameObjectsWithTag("obstacle");
+			Destroy(obstacle1.gameObject);
+			Destroy(obstacle2.gameObject);
+			 GameObject[] obstacles = GameObject.FindGameObjectsWithTag("kingbullet");
    			foreach(GameObject obstacle in obstacles)
    			GameObject.Destroy(obstacle);
 		}
 	}
+	
 }

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	public GameObject bulletPrefab;
-	public float bulletSpeed = 10.0f;
+	public GameObject bulletPrefab, king;
+	public float bulletSpeed = 10.0f, m_distanceTraveled = 0f;
 	private GameObject bulletSpawn;
-	
 	// Use this for initialization
 	void Start () {
 		bulletSpawn = GameObject.Find("BulletSpawn");
-		print("hey");
+
 	}
 	
 	// Update is called once per frame
@@ -29,5 +28,18 @@ public class Player : MonoBehaviour {
 			GameObject tempBullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
 			tempBullet.GetComponent<Rigidbody>().velocity = bulletSpawn.transform.up*bulletSpeed;
 		}
+		if(king==null)
+		{
+			jalan();
+		}
+		
+	}
+	void jalan()
+	{
+		if (m_distanceTraveled < 60f) {
+    	Vector3 oldPosition = transform.position;
+    	transform.Translate(0,0,1 *10* Time.deltaTime);
+   		m_distanceTraveled += Vector3.Distance(oldPosition, transform.position);
+  		}
 	}
 }
