@@ -7,10 +7,6 @@ public class bulletKingScript : MonoBehaviour {
 	private void OnCollisionEnter(Collision collision)
 	{
 		Destroy(this.gameObject);
-		if(collision.gameObject.CompareTag("tower"))
-		{
-			Destroy(collision.gameObject);
-		}
 		if(collision.gameObject.CompareTag("player"))
 		{
 			FindObjectOfType<GameManager>().EndGame();
