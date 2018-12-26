@@ -23,6 +23,17 @@ public class Player : MonoBehaviour {
      }
 
 	void Update () {
+		 if (Input.GetKeyDown(KeyCode.P))
+		{
+			if (Time.timeScale == 1)
+			{
+				Time.timeScale = 0;
+			}
+			else
+			{
+				Time.timeScale = 1;
+			}
+		}
 		if(Input.GetKeyDown(KeyCode.Space)){
 				if(this.transform.position.y<=0.55){
 				this.anim.Play("Jump");
