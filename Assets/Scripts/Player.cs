@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 	public GameObject bulletPrefab, king, king2;
-	public float bulletSpeed = 10.0f, m_distanceTraveled = 0f;
+	public float bulletSpeed = 10.0f, m_distanceTraveled = 0f, fireRate = 0.5F;
 	private GameObject bulletSpawn;
+	private float nextFire = 0.0F;
 	Animator anim;
 
 	// Use this for initialization
@@ -23,12 +24,13 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space)){
-				if(this.transform.position.y<=0.5){
+				if(this.transform.position.y<=0.55){
 				this.anim.Play("Jump");
 				 Jump();}
          }
-		if(Input.GetButtonDown("Fire1"))
+		if(Input.GetButtonDown("Fire1") && Time.time > nextFire)
 		{
+			nextFire = Time.time + fireRate;
 			this.anim.Play("Fire");
 			GameObject tempBullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
 			tempBullet.GetComponent<Rigidbody>().velocity = bulletSpawn.transform.up*bulletSpeed;

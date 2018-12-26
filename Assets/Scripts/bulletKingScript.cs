@@ -13,7 +13,6 @@ public class bulletKingScript : MonoBehaviour {
 		}
 		if(collision.gameObject.CompareTag("player"))
 		{
-			print("haihai");
 			FindObjectOfType<GameManager>().EndGame();
 		}
 	}
