@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bulletScript : MonoBehaviour {
 //	public GameObject player;
+	public float startPos;
 	private void OnCollisionEnter(Collision collision)
 	{
 		Destroy(this.gameObject);
@@ -16,9 +17,13 @@ public class bulletScript : MonoBehaviour {
 			FindObjectOfType<GameManager>().EndGame();
 		}
 	}
+	void Start()
+	{
+		startPos = this.transform.position.z;
+	}
 	void Update()
 	{
-	if(this.transform.position.z >= 30){
+	if(this.transform.position.z-startPos >= 30){
 		Destroy(this.gameObject);
 	}
 	}

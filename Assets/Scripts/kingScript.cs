@@ -8,7 +8,7 @@ public class kingScript : MonoBehaviour {
 	
 	public Rigidbody obstacle1, obstacle2,player;
 
-	int blood=10;
+	public int blood=10;
 	void OnCollisionEnter(Collision collision)
 	{
 
